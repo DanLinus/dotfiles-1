@@ -1,0 +1,74 @@
+order += "volume_status"
+order += "backlight"
+order += "battery_level"
+order += "arch_updates"
+order += "weather_yahoo"
+order += "clock"
+order += "whoami"
+
+py3status {
+    nagbar_font = 'pango:DejaVu Sans Mono 12'
+}
+
+battery_level {
+	blocks = ""
+	format = "{icon} {percent}%"
+	hide_when_full = False
+	format_notify_charging = " {percent}%"
+	color_bad = "#FF0000"
+	color_charging = "#00FF00AA"
+	color_degraded = "#1D7D7A"
+	color_good = "#FFFFFF"
+}
+
+clock {
+	format_time = " %y.%m.%d   %H:%M"
+}
+
+keyboard_layout {
+	cache_timeout = 1
+	format = " {layout}"
+	color_ru = "#ffffff"
+	color_us = "#ffffff"
+	color_ua = "#ffffff"
+}
+
+arch_updates {
+	format = " {pacman}/{aur}"
+	hide_if_zero = True
+}
+
+backlight {
+	cache_timeout = 1
+	format = " {level}%"
+}
+
+volume_status {
+	cache_timeout = 0.5
+	format = " {percentage}%"
+	format_muted = " mute"
+	thresholds = [(0, "#FFFFFF")]
+	color_muted = "#FFFFFF21"
+	on_click 1 = "exec i3-sensible-terminal -e alsamixer"
+	on_click 2 = "exec amixer set Master toggle"
+	on_click 3 = "exec killall alsamixer"
+	on_click 4 = "exec amixer -c 0 set PCM 3dB+"
+	on_click 5 = "exec amixer -c 0 set PCM 3dB-"
+}
+
+weather_yahoo {
+	forecast_days = 0
+	woeid = "2347263"
+	format_today = "{icon} {temp}°{units}"
+
+	icon_cloud = ""
+	icon_rain = ""
+	icon_snow = ""
+	icon_sun = ""
+	icon_default = ""
+}
+
+whoami {
+	on_click 1 = "exec i3-nagbar -t warning -m 'Do you really want to shutdown PC?' -b 'Shutdown' 'shutdown now'"
+	on_click 2 = ""
+}

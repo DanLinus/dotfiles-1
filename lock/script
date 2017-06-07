@@ -1,0 +1,8 @@
+#!/bin/bash
+IMG=~/.config/i3/lock/Archlogosonkucuk.png
+BG=~/.config/i3/lock/bg.png
+scrot $BG
+convert $BG -blur 0x5 $BG
+convert $BG $IMG -gravity center -composite -matte $BG
+i3lock -i $BG -u -f
+

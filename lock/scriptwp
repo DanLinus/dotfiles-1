@@ -1,0 +1,5 @@
+#!/bin/bash
+BG=~/.config/i3/lock/bg.png
+scrot $BG
+convert $BG -blur 0x5 $BG
+i3lock -i $BG -u -f
