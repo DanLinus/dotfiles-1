@@ -6,6 +6,7 @@ order += "weather_yahoo"
 order += "clock"
 order += "whoami"
 
+
 py3status {
     nagbar_font = 'pango:DejaVu Sans Mono 12'
 }
