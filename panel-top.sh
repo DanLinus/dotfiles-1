@@ -1,5 +1,4 @@
 #! /bin/sh
-
 PANEL_WM=panel_top
 PANEL_FIFO=/tmp/panel_top_fifo
 
